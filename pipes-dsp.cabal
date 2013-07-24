@@ -1,0 +1,31 @@
+Name:               pipes-network
+Version:            0.1.0
+License:            BSD3
+License-File:       LICENSE
+Copyright:          (c) 2013 Greg Hale
+Author:             Greg Hale
+Maintainer:         imalsogreg@gmail.com
+Stability:          Experimental
+Homepage:           https://github.com/ImAlsoGreg/pipes-dsp
+Bug-Reports:        https://github.com/ImAlsoGreg/pipes-dsp/issues
+Category:           Pipes
+Build-Type:         Simple
+Synopsis:           Simple signal processing wrapped in pipes
+Cabal-Version:      >=1.8
+Extra-Source-Files: README.md
+Description:
+  Description to come.
+
+Source-Repository head
+  Type:     git
+  Location: git://github.com/ImAlsoGreg/pipes-dsp.git
+
+Library
+  Hs-Source-Dirs: src
+  Build-Depends:
+    base     (>= 4 && <= 5)
+    pipes    (>= 3.2 && <= 3.4)
+  Exposed-Modules:
+    Control.Proxy.DSP
+  Ghc-Options: -Wall
+
