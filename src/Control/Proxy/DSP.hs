@@ -80,3 +80,6 @@ unSputter chunkSize () = runIdentityP $ loop (V.empty, 0)
       | otherwise = do
         newBuffer <- request ()
         loop (buffer V.++ newBuffer, bufferLen + V.length newBuffer)
+
+
+exampleUse = runProxy $ fromListS sputterTestData >-> unSputter 5 >-> printD
