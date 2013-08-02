@@ -1,4 +1,4 @@
-Name:               pipes-network
+Name:               pipes-dsp
 Version:            0.1.0
 License:            BSD3
 License-File:       LICENSE
@@ -20,12 +20,30 @@ Source-Repository head
   Type:     git
   Location: git://github.com/ImAlsoGreg/pipes-dsp.git
 
+Flag Demo
+  Description: Build demos
+  
 Library
   Hs-Source-Dirs: src
   Build-Depends:
     base     (>= 4 && <= 5)
-    pipes    (>= 3.2 && <= 3.4)
+    , pipes  (>= 3.2 && <= 3.4)
+    , vector (>= 0.10 && < 2)
   Exposed-Modules:
     Control.Proxy.DSP
-  Ghc-Options: -Wall
+  Ghc-Options: -Wall -O2 -fllvm
 
+Executable iirDemo
+  If flag(Demo)
+    Build-Depends: base
+                  , pipes-dsp
+                  , pipes
+                  , HsCharts
+                  , gloss
+                  , transformers
+                  , time
+  Else
+    Buildable: False
+  GHC_Options: -Wall -O2 -rtsopts -fllvm
+  Hs-Source-Dirs: demo
+  Main-Is: IIRDemo.hs
