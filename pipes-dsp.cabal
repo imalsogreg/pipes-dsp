@@ -1,6 +1,6 @@
 Name:               pipes-dsp
 Version:            0.1.0
-License:            BSD3
+License:            GPL-3
 License-File:       LICENSE
 Copyright:          (c) 2013 Greg Hale
 Author:             Greg Hale
@@ -27,23 +27,28 @@ Library
   Hs-Source-Dirs: src
   Build-Depends:
     base     (>= 4 && <= 5)
-    , pipes  (>= 3.2 && <= 3.4)
-    , vector (>= 0.10 && < 2)
+    , pipes  (>= 4.0 && <= 4.1)
+    , vector (>= 0.10 && < 0.11)
   Exposed-Modules:
-    Control.Proxy.DSP
-  Ghc-Options: -Wall -O2 -fllvm
+    Pipes.DSP
+  Other-Modules:
+    Pipes.DSP.ReferenceSignals
+    Pipes.DSP.FIRIIR
+  Ghc-Options: -Wall -O2
 
 Executable iirDemo
   If flag(Demo)
     Build-Depends: base
                   , pipes-dsp
-                  , pipes
-                  , HsCharts
-                  , gloss
+                  , pipes    (>= 4.0 && < 4.1)
+                  , Chart
+                  , gloss    (>= 1.8 && < 1.9)
                   , transformers
                   , time
+                  , vector (>= 0.10 && < 0.11)
+    Other-Modules: TestFIRIIR
   Else
     Buildable: False
   GHC_Options: -Wall -O2 -rtsopts -fllvm
-  Hs-Source-Dirs: demo
+  Hs-Source-Dirs: demo, test
   Main-Is: IIRDemo.hs
