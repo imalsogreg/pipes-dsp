@@ -3,12 +3,14 @@
 module Pipes.DSP (
     module Pipes.DSP.ReferenceSignals
   , module Pipes.DSP.FIRIIR
+  , module Pipes.DSP.Windowing
   , unSputter
 )
          where
 
 import Pipes.DSP.ReferenceSignals
 import Pipes.DSP.FIRIIR
+import Pipes.DSP.Windowing
 
 import Pipes
 import qualified Data.Vector.Unboxed as V

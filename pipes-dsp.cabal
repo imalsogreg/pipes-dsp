@@ -29,11 +29,13 @@ Library
     base     (>= 4 && <= 5)
     , pipes  (>= 4.0 && <= 4.1)
     , vector (>= 0.10 && < 0.11)
+    , hmatrix (>= 0.15 && < 0.16)
   Exposed-Modules:
     Pipes.DSP
   Other-Modules:
     Pipes.DSP.ReferenceSignals
     Pipes.DSP.FIRIIR
+    Pipes.DSP.Windowing
   Ghc-Options: -Wall -O2
 
 Executable iirDemo
